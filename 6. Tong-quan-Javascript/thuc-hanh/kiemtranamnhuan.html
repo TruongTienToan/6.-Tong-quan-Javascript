@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    let years = parseInt(prompt("Enter the years:"));
+    let isLeapyears = false;
+
+    let isDivisibleBy4 = years % 4 == 0;
+    if(isDivisibleBy4) {
+        let isDivisibleBy100 = years % 100 == 0;
+        if(isDivisibleBy100) {
+            let isDivisibleBy400 = years % 400 == 0;
+            if(isDivisibleBy400) {
+                isLeapyears = true;
+            }        
+        } else {
+            isLeapyears = true;
+        }
+    }
+
+    if(isLeapyears) {
+        alert("is a leap years")
+    } else {
+        alert("is NOT a leap years")
+    }
+</script>
+</body>
+</html>

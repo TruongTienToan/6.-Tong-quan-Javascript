@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển đổi tiền tệ</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th><label for="Amount">Amount</label></th>
+            <th>From Currency</th>
+            <th>To Currency</th>
+        </tr>
+        <tr>
+            <td><input type="text" id="Amount"></td>
+            <td>
+                <select id="From">
+                    <option value="VND">VND</option>
+                    <option value="USD">USD</option>
+                </select>
+            </td>
+            <td>
+                <select id="To">
+                    <option value="USD">USD</option>
+                    <option value="VND">VND</option>
+                </select>
+            </td>
+            <td><button onclick="changeMoney()">Convert</button></td>
+        </tr>
+    </table>
+    <br>
+    <p id="Result">Result</p>
+</body>
+<script>
+    function changeMoney() {
+        let Amount = document.getElementById("Amount").value;
+        let From = document.getElementById("From").value;
+        let To = document.getElementById("To").value;
+        let Result;
+
+        if (From == "USD" && To == "VND") {
+            Result = ("Result:" + (Amount*23000) + 'Đ');
+        } else if (From == "VND" && To == "USD") {
+            Result = ("Result:" + (Amount/23000) + '$');
+        } else if (From == "VND" && To == "VND") {
+            Result = ("Result:" + Amount + "Đ");
+        } else {
+            Result = ("Result:" + Amount + "$");
+        }
+        document.getElementById("Result").innerHTML = Result;
+    }
+</script>
+</html>
